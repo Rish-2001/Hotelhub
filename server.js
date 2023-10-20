@@ -13,6 +13,10 @@ app.use('/api/rooms',roomsRoute);  //after fetching the route we use in app
 app.use('/api/users',userRoute);
 app.use('/api/bookings',bookingsRoute);
 
+app.get('/' , (req, res)=>{
+    res.send("Hello World");
+})
+
 const port=process.env.PORT || 5000;                  // second step
 // app.listen(port,()=>`Server running on port ${port} `);
 app.listen(port,()=>console.log(`Server running on port ${port} `));
