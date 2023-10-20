@@ -3,7 +3,7 @@ const router=express.Router();
 
 const Room=require('../models/room');      // here we access the mongoosedata which is on the mongoose campus
 
-router.get("/getallrooms",async(req,res)=>{
+router.get("https://hotelhub-wy2e.onrender.com/getallrooms",async(req,res)=>{
 
     try {
         const rooms = await Room.find({});
@@ -15,7 +15,7 @@ router.get("/getallrooms",async(req,res)=>{
 
 });
 
-router.post("/getroombyid",async(req,res)=>{
+router.post("https://hotelhub-wy2e.onrender.com/getroombyid",async(req,res)=>{
         const roomid=req.body.roomid 
     try {
         const room = await Room.findOne({_id:roomid});
@@ -29,7 +29,7 @@ router.post("/getroombyid",async(req,res)=>{
 
 //add newroom
 
-router.post('/addroom',async(req,res)=>{
+router.post('https://hotelhub-wy2e.onrender.com/addroom',async(req,res)=>{
     try {
         const newroom=new Room(req.body)
         await newroom.save();

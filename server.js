@@ -9,9 +9,9 @@ const bookingsRoute=require('./routes/bookingsRoute');
 
 app.use(express.json());  //this is for the json file used in after clicking on book now generate the json on backend
 app.use(cors());
-app.use('/api/rooms',roomsRoute);  //after fetching the route we use in app 
-app.use('/api/users',userRoute);
-app.use('/api/bookings',bookingsRoute);
+app.use('https://hotelhub-wy2e.onrender.com/api/rooms',roomsRoute);  //after fetching the route we use in app 
+app.use('https://hotelhub-wy2e.onrender.com/api/users',userRoute);
+app.use('https://hotelhub-wy2e.onrender.com/api/bookings',bookingsRoute);
 
 
 
