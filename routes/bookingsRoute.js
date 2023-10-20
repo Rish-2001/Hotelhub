@@ -5,7 +5,7 @@ const Room = require('../models/room');
 const { v4: uuidv4 } = require('uuid');
 const stripe=require('stripe')('sk_test_51O1ogCSH9sbFouxB8vBOyDx41cGAhJ23feNZUKgawtcAGPhXtfQ2n1hiYjUSBxCQyboKaADVTO8CRoMPAR4bTCYJ00mJyyzku1')
 
-router.post('https://hotelhub-wy2e.onrender.com/bookroom', async (req, res) => {
+router.post('/bookroom', async (req, res) => {
   const {
     room,
     userid,
@@ -80,7 +80,7 @@ router.post('https://hotelhub-wy2e.onrender.com/bookroom', async (req, res) => {
 
 //for booking section 
 
-router.post("https://hotelhub-wy2e.onrender.com/getbookingsbyuserid",async(req,res)=>{
+router.post("/getbookingsbyuserid",async(req,res)=>{
     const userid=req.body.userid;
     try {
       const bookings=await Booking.find({userid:userid})
@@ -91,7 +91,7 @@ router.post("https://hotelhub-wy2e.onrender.com/getbookingsbyuserid",async(req,r
 
 })
 
-router.post("https://hotelhub-wy2e.onrender.com/cancelbooking",async(req,res)=>{
+router.post("/cancelbooking",async(req,res)=>{
    const {bookingid,roomid}=req.body
    try {
     const booking=await Booking.findOne({_id:bookingid});
@@ -112,7 +112,7 @@ router.post("https://hotelhub-wy2e.onrender.com/cancelbooking",async(req,res)=>{
 
 //get all bookings 
 
-router.get("https://hotelhub-wy2e.onrender.com/getallbookings",async(req,res)=>{
+router.get("/getallbookings",async(req,res)=>{
   try {
     const bookings=await Booking.find();
     res.send(bookings);

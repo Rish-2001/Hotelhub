@@ -3,7 +3,7 @@ const router=express.Router();
 const User=require("../models/user");
 
 
-router.post("https://hotelhub-wy2e.onrender.com/register",async(req,res)=>{
+router.post("/register",async(req,res)=>{
     const newuser=new User({name:req.body.name,email:req.body.email,password:req.body.password});
 
 
@@ -18,7 +18,7 @@ router.post("https://hotelhub-wy2e.onrender.com/register",async(req,res)=>{
 });
 
 
-router.post("https://hotelhub-wy2e.onrender.com/login",async(req,res)=>{
+router.post("/login",async(req,res)=>{
     const{email,password}=req.body;
     
     try {
@@ -42,7 +42,7 @@ router.post("https://hotelhub-wy2e.onrender.com/login",async(req,res)=>{
 
 //for user admin panel
 
-router.get("https://hotelhub-wy2e.onrender.com/getallusers",async(req,res)=>{
+router.get("/getallusers",async(req,res)=>{
     try {
         const users=await User.find();
         res.send(users);
